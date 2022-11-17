@@ -47,7 +47,7 @@
         tree searching.)
     </p>
     <h3>The backtracking algorithm.</h3>
-    <pre>
+    <pre style="color: blue;">
         boolean solve(Node n) {
              if n is a leaf node {
                  if the leaf is a goal node, return true 
@@ -74,7 +74,7 @@
         test whether any child of n is solvable. This is done recursively, on each child of n. In the above code, this
         is done by the lines
     </p>
-    <pre>
+    <pre style="color: blue;" >
         for each child c of n 
         { if solve(c) succeeds, return true
          }
@@ -86,7 +86,7 @@
         the leaf node is not a goal node, it is not solvable. This is our base case. In the above code, this is done by
         the lines
     </p>
-    <pre>
+    <pre style="color: blue;">
         if n is a leaf node { 
             if the leaf is a goal node, return true
              else return false
@@ -102,7 +102,7 @@
 
     </ol>
     <h3>Non-recursive backtracking, using a stack</h3>
-    <pre>
+    <pre style="color: blue;">
         boolean solve(Node n) {
              put node n on the stack; 
              while the stack is not empty {
@@ -130,7 +130,7 @@
         (for instance) printing the node at the current level, or storing it in an array. Here is the recursive
         backtracking algorithm, modified slightly to print (in reverse order) the nodes along the successful path:
     </p>
-    <pre>
+    <pre style="color:blue ;">
         boolean solve(Node n) {
              if n is a leaf node {
                  if the leaf is a goal node {
@@ -205,7 +205,7 @@
     </p>
     <p> Here's a definition of the BinaryTree class:
     </p>
-    <pre>
+    <pre style="color: blue ;">
         public class BinaryTree { 
             BinaryTree leftChild = null;
              BinaryTree rightChild = null;
@@ -221,7 +221,7 @@
     </pre>
     <p>Next we will create a TreeSearch class, and in it we will define a method makeTree() which constructs the above
         binary tree.</p>
-    <pre>static BinaryTree makeTree() { 
+    <pre style="color:blue ;">static BinaryTree makeTree() { 
         BinaryTree root, a, b, c, d, e, f;
          c = new BinaryTree("C", null, null, false);
           d = new BinaryTree("D", null, null, false);
@@ -234,13 +234,13 @@
              }
     </pre>
     <p>Here's a main program to create a binary tree and try to solve it:</p>
-    <pre>public static void main(String args[]) {
+    <pre style="color: blue;">public static void main(String args[]) {
          BinaryTree tree = makeTree();
           System.out.println(solvable(tree));
          }
         </pre>
     <p>And finally, here's the recursive backtracking routine to "solve" the binary tree by finding a goal node.</p>
-    <pre>static boolean solvable(BinaryTree node) { 
+    <pre style="color: blue;">static boolean solvable(BinaryTree node) { 
             /* 1 */ if (node == null) return false;
              /* 2 */ if (node.isGoalNode) return true;
               /* 3 */ if (solvable(node.leftChild)) return true;
@@ -262,7 +262,7 @@
     <p>Each time we ask for another node, we have to check if it is null. In the above we put that check as the first
         thing in solvable. An alternative would be to check first whether each child exists, and recur only if they do.
         Here's that alternative version:</p>
-    <pre>static boolean solvable(BinaryTree node) {
+    <pre style="color:blue ;">static boolean solvable(BinaryTree node) {
                  if (node.isGoalNode) return true;
                   if (node.leftChild != null && solvable(node.leftChild)) return true;
                    if (node.rightChild != null && solvable(node.rightChild)) return true;
@@ -302,7 +302,7 @@
         checkerboard). <br>
     </p>
     <p>Here's the code for method 1:</p>
-    <pre>
+    <pre style="color: blue;">
     boolean explore1(int row, int column, int color) {
          if (row >= NUM_ROWS)return mapIsOK();
           map[row][column] = color; 
@@ -314,7 +314,7 @@
             }
  </pre>
     <p>And here's the code for method 2:</p>
-    <pre>
+    <pre style="color:blue ;">
       boolean explore2(int row, int column, int color) {
          if (row >= NUM_ROWS)return true;
           if (okToColor(row, column, color)) { 
@@ -369,7 +369,7 @@
     <p>Here's our debugging code. For this trivial program, there's almost more debugging code than actual code, but in
         larger programs the proportions will be better.</p>
 
-    <pre>
+    <pre style="color: blue;">
     static String indent = "";
      static String name(BinaryTree node) {
          if (node == null) return null;
@@ -391,7 +391,7 @@
                      }
  </pre>
     <p>To use this code, we modify solvable as follows:</p>
-    <pre>
+    <pre style="color:blue ;">
     static boolean solvable(BinaryTree node) {
          enter(node);
           if (node == null) return no(node);
@@ -433,7 +433,7 @@
         example, you would have to replace every return(yes(node)) with return(true), and every return(no(node)) with
         return false. With all these changes, you might introduce new bugs into your program. The simple solution is to
         make your debugging statements conditional. For example,</p>
-    <pre>
+    <pre style="color: blue ;">
     static final boolean debugging = false;
      static void enter(BinaryTree node) {
          if (debugging) {
@@ -463,10 +463,10 @@
         printStackTrace(PrintStream). Since an Exception is an object like any other, you can create and throw your own
         Exceptions. However, Java programmers don't always realize that you can create an Exception without throwing it.
         For example, the following code</p>
-    <pre>new Exception("Checkpoint Charlie").printStackTrace(System.out);</pre>
+    <pre style="color: blue;">new Exception("Checkpoint Charlie").printStackTrace(System.out);</pre>
     <p>will print out a message something like this, and the program will then continue normally. That is, the above
         code just acts like a print statement.</p>
-    <pre>
+    <pre style="color: blue;">
                                 java.lang.Exception: Checkpoint Charlie
                                  at TreeSearch.solvable(TreeSearch.java:53)
                                   at TreeSearch.solvable(TreeSearch.java:57)
@@ -667,7 +667,7 @@
         <b> puzzleSolved and printBoard </b> with meanings that should be obvious. With these methods, our central
         backtracking method can be written as follows:
     </p>
-    <pre>
+    <pre style="color: blue;">
     boolean solvable(int[] board) {
          if (puzzleSolved(board)) {
              return true; 
